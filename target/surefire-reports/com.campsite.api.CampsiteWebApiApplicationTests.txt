@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: com.campsite.api.CampsiteWebApiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.21 s <<< FAILURE! - in com.campsite.api.CampsiteWebApiApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: 
+Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker': Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/Users/shewetaankindora/IdeaProjects/campsite_webAPI/target/classes/data.sql]: INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TBL_BOOK" not found; SQL statement:
+INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0) [42102-200]
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker': Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/Users/shewetaankindora/IdeaProjects/campsite_webAPI/target/classes/data.sql]: INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TBL_BOOK" not found; SQL statement:
+INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0) [42102-200]
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker': Invocation of init method failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/Users/shewetaankindora/IdeaProjects/campsite_webAPI/target/classes/data.sql]: INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TBL_BOOK" not found; SQL statement:
+INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0) [42102-200]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: 
+Failed to execute SQL script statement #1 of URL [file:/Users/shewetaankindora/IdeaProjects/campsite_webAPI/target/classes/data.sql]: INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TBL_BOOK" not found; SQL statement:
+INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0) [42102-200]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: 
+Table "TBL_BOOK" not found; SQL statement:
+INSERT INTO tbl_book (id, name, price) VALUES (1, 'Spring Boot - Spring Data JPA with Hibernate and H2 Web Console', 0.0) [42102-200]
+

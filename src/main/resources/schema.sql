@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS campsiteRegistration;
+
+CREATE TABLE campsiteRegistration (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  userId VARCHAR(100),
+  firstName VARCHAR(100) NOT NULL,
+  lastName VARCHAR(100) NOT NULL,
+  bookingNumber VARCHAR(8) NOT NULL DEFAULT UPPER(SUBSTRING(RANDOM_UUID(), 0, 8)),
+email VARCHAR(250) NOT NULL,
+fromDate DATE NOT NULL,
+toDate DATE NOT NULL
+);

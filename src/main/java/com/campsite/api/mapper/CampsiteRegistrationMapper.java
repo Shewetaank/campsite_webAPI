@@ -4,28 +4,10 @@ import com.campsite.api.client.ClientBookingObject;
 import com.campsite.api.client.User;
 import com.campsite.api.entity.CampsiteRegistration;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CampsiteRegistrationMapper {
-
-    public static List<ClientBookingObject> getCampsiteRegistrationMapper(ResultSet resultSet) throws SQLException {
-        List<ClientBookingObject> clientBookingObjects = new ArrayList<>();
-        while (resultSet.next()) {
-            clientBookingObjects.add(new ClientBookingObject() {{
-                setUser(new User() {{
-                    setId(resultSet.getString("userId"));
-                    setEmail(resultSet.getString("email"));
-                }});
-                setFromDate(resultSet.getDate("fromDate"));
-                setToDate(resultSet.getDate("toDate"));
-                setBookingNumber(resultSet.getString("bookingNumber"));
-            }});
-        }
-        return clientBookingObjects;
-    }
 
     public static List<ClientBookingObject> getCampsiteRegistrationMapper(Iterable<com.campsite.api.entity.CampsiteRegistration> campsiteRegistrations) {
         List<ClientBookingObject> clientBookingObjectList = new ArrayList<>();
@@ -68,22 +50,5 @@ public class CampsiteRegistrationMapper {
             setFromDate(campsiteRegistration.getFromDate());
             setToDate(campsiteRegistration.getToDate());
         }};
-    }
-
-    public static ClientBookingObject getSingleCampsiteRegistrationMapper(ResultSet resultSet) throws SQLException {
-        ClientBookingObject clientBookingObject = new ClientBookingObject();
-        while(resultSet.next()) {
-            clientBookingObject.setUser(new User() {{
-                setId(resultSet.getString(2));
-                setFirstName(resultSet.getString(3));
-                setLastName(resultSet.getString(4));
-                setEmail(resultSet.getString(6));
-            }});
-            clientBookingObject.setFromDate(resultSet.getDate(7));
-            clientBookingObject.setToDate(resultSet.getDate(8));
-            clientBookingObject.setBookingNumber(resultSet.getString(5));
-            return clientBookingObject;
-        }
-        return null;
     }
 }

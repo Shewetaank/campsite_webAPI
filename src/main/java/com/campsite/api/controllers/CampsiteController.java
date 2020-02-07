@@ -21,7 +21,7 @@ public class CampsiteController {
     private CampsiteRegistrationService campsiteRegistrationService;
 
     @PostMapping("/campsiteRegistration")
-    public ClientBookingObject campsiteRegistration(@RequestBody ClientBookingObject clientBookingObject) {
+    public ClientBookingObject campsiteRegistration(@RequestBody ClientBookingObject clientBookingObject) throws Exception {
         try {
             return campsiteRegistrationService.campsiteRegistration(clientBookingObject);
         } catch (Exception ex) {
@@ -31,7 +31,7 @@ public class CampsiteController {
     }
 
     @PostMapping("/campsiteRegistration/anonymous")
-    public ClientBookingObject campsiteRegistrationForAnonymousUser(@RequestBody ClientBookingObject clientBookingObject) {
+    public ClientBookingObject campsiteRegistrationForAnonymousUser(@RequestBody ClientBookingObject clientBookingObject) throws Exception {
         try {
             return campsiteRegistrationService.campsiteRegistrationForAnonymousUser(clientBookingObject);
         } catch (Exception ex) {

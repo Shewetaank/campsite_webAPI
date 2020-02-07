@@ -1,4 +1,4 @@
-package com.campsite.api.pojos;
+package com.campsite.api.client;
 
 public class User {
 

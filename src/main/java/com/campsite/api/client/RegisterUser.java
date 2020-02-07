@@ -1,4 +1,4 @@
-package com.campsite.api.pojos;
+package com.campsite.api.client;
 
 import com.okta.sdk.resource.group.GroupList;
 import com.okta.sdk.resource.user.*;

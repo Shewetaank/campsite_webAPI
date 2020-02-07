@@ -1,9 +1,10 @@
 package com.campsite.api.controllers;
 
-import com.campsite.api.pojos.User;
+import com.campsite.api.client.User;
 import com.okta.sdk.client.Client;
 import com.okta.sdk.resource.user.UserBuilder;
 import com.okta.sdk.resource.user.UserList;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class UserController {
 
+    final static Logger LOGGER = Logger.getLogger(UserController.class);
+
     @Autowired
     private Client client;
 
     @PostMapping("/registerUser/create")
-    public String registerUser(@RequestBody User user) {
+    public com.okta.sdk.resource.user.User registerUser(@RequestBody User user) {
         com.okta.sdk.resource.user.User result;
         try {
             result = UserBuilder.instance()
@@ -24,11 +27,11 @@ public class UserController {
                     .setLastName(user.getLastName())
                     .setPassword(user.getPassword().toCharArray())
                     .buildAndCreate(client);
-            System.out.println(result);
+            return result;
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOGGER.error("Error while creating user: " + user.toString(), ex);
         }
-        return "hello world";
+        return null;
     }
 
     @GetMapping("/registerUser/{id}")
@@ -42,7 +45,7 @@ public class UserController {
                 }
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOGGER.error("Error getting user info with id: " + id, ex);
         }
         return result;
     }

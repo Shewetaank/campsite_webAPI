@@ -1,8 +1,8 @@
-package com.campsite.api.pojos;
+package com.campsite.api.client;
 
 import java.util.Date;
 
-public class CampsiteRegistration {
+public class ClientBookingObject {
 
     private User user;
     private String bookingNumber;

@@ -31,28 +31,28 @@ http://localhost:8081/registerUser
 The request for the campsite registration from the web App sends user's first name, last name, email address and the date range (minimum of 1 day to a maximum
 of 3 days). The request object for the registration looks like-
 
-{
-    user: {
-        firstName: "test",
-        lastName: "test lastname",
-        email: "test@gmail.com"
-    },
-    fromDate: "Tue Feb 18 00:00:00 EST 2020",
-    toDate: "Thu Feb 20 00:00:00 EST 2020"
-}
+    {
+       "user": {
+          "firstName": "test",
+          "lastName": "test lastname",
+          "email": "test@gmail.com"
+       },
+       "fromDate": "Tue Feb 18 00:00:00 EST 2020",
+       "toDate": "Thu Feb 20 00:00:00 EST 2020"
+    }
 
 The response will look like-
 
-{
-    user: {
-        firstName: "test",
-        lastName: "test lastname",
-        email: "test@gmail.com"
-    },
-    bookingNumber: "DBCF22DB" // auto-generated value with fixed length of 8 alpha-numeric characters
-    fromDate: "2020-02-18",
-    toDate: "2020-02-20"
-}
+    {
+       "user": {
+          "firstName": "test",
+          "lastName": "test lastname",
+          "email": "test@gmail.com"
+       },
+       "bookingNumber": "DBCF22DB", // auto-generated value with fixed length of 8 alpha-numeric characters
+       "fromDate": "2020-02-18",
+       "toDate": "2020-02-20"
+    }
 
 Please check the CampsiteController class for list of other methods. There are separate methods for anonymous and registered user but can be
 merged to one.
@@ -127,3 +127,6 @@ Besides this there are also methods in UserController to get the info and regist
 The Web API also starts with a single entry to the data base defined in the DataInit class. If you setup initial data setup there and try it out.
 Also, while saving info to db the service queries the table first to check if there is overlapping dates in the range provided by the user.
 If there is the save operation to the db will fail.
+
+There are also validator classes to validate the info provided by the user and will fails to save the database in case of exception. Please check validation package
+for more details.

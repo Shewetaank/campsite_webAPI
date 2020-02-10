@@ -34,7 +34,6 @@ public class DataInit implements ApplicationRunner {
         if (count == 0) {
             CampsiteRegistration p1 = new CampsiteRegistration();
 
-            p1.setUserId("ERS345SA");
             p1.setEmail("shewetaank.indora@gmail.com");
             p1.setFirstName("Shewetaank");
             p1.setLastName("Indora");

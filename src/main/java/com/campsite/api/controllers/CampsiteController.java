@@ -23,7 +23,10 @@ public class CampsiteController {
     @PostMapping("/campsiteRegistration")
     public ClientBookingObject campsiteRegistration(@RequestBody ClientBookingObject clientBookingObject) throws Exception {
         try {
-            return campsiteRegistrationService.campsiteRegistration(clientBookingObject);
+            System.out.println(clientBookingObject.toString());
+            ClientBookingObject response = campsiteRegistrationService.campsiteRegistration(clientBookingObject);
+            System.out.println(response.toString());
+            return response;
         } catch (Exception ex) {
             LOGGER.error("Error while adding campsite registration: " + clientBookingObject.toString());
             throw ex;

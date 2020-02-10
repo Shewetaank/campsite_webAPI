@@ -1,12 +1,15 @@
 package com.campsite.api.entity;
 
 
+import com.campsite.api.validators.CampsiteRegistrationAnnotation;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name = "CAMPSITEREGISTRATION")
+@CampsiteRegistrationAnnotation
 public class CampsiteRegistration {
 
     @Id
